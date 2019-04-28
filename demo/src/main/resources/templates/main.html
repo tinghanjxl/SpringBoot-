@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<title>管理中心</title>
+	<link rel="stylesheet" th:href="@{/css/pintuer.css}">
+	<link rel="stylesheet" th:href="@{/css/admin.css}">
+
+	<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+	<STYLE type=text/css>
+		/** 美化iframe滚动条 */
+		BODY {
+			SCROLLBAR-FACE-COLOR: #e8e7e7;
+			SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+			SCROLLBAR-SHADOW-COLOR: #ffffff;
+			SCROLLBAR-3DLIGHT-COLOR: #cccccc;
+			SCROLLBAR-ARROW-COLOR: #03B7EC;
+			SCROLLBAR-TRACK-COLOR: #EFEFEF;
+			SCROLLBAR-DARKSHADOW-COLOR: #b2b2b2;
+			SCROLLBAR-BASE-COLOR: #000000;
+		}
+		a{
+			color:#000;
+		}
+
+		#a1
+		{
+			margin-top: 25px;
+			height: 30px;
+			margin-left: 30px;
+		}
+		.logo {
+			margin-top: -8px;
+		}
+
+		.head-r {
+			float: right;
+			margin-right: 50px;
+			height: 70px;
+			line-height: 70px;
+		}
+		.title {
+			/* float:left; */
+			font-size:14px;
+			/* color:ccc */
+			font-weight: bold;
+		}
+		.time {
+			/* float:right; */
+			padding-left: 10px;
+			font-size:12px;
+			color:#333;
+		}
+		.content {
+			font-size:14px;
+			color:#666;
+		}
+	</STYLE>
+
+</head>
+<body style="background-color: #f2f9fd;">
+<div class="header bg-main">
+	<div class="logo margin-big-left fadein-top">
+		<h1 style="float: left;">
+			<img th:src="@{/images/y.jpg}" class="radius-circle rotate-hover"
+				 height="50" alt="" />管理系统
+		</h1>
+		<a id="a1" th:href="@{/}" class="btn btn-info"><span>退出</span></a>
+
+	</div>
+
+</div>
+<div class="leftnav">
+	<div class="leftnav-title">
+		<strong><span class="icon-list"></span>菜单列表</strong>
+	</div>
+	<h2>
+		<span class="icon-user"></span>基本设置
+	</h2>
+	<ul style="display: block">
+		<li><a th:href="@{/user/list}"  target="right"><span
+				class="icon-caret-right"></span>用户管理</a></li>
+		<li><a href="role/list" target="right"><span
+				class="icon-caret-right"></span>角色管理</a></li>
+		<li><a href="perm/list" target="right"><span
+				class="icon-caret-right"></span>权限管理</a></li>
+	</ul>
+	<h2>
+		<span class="icon-user"></span>招聘管理
+	</h2>
+	<ul style="display: block">
+		<li><a th:href="@{/CompanyController/company_inside}"  target="right"><span
+				class="icon-caret-right"></span>公司管理</a></li>
+		<li><a th:href="@{/PostController/post_inside}" target="right"><span
+				class="icon-caret-right"></span>岗位管理</a></li>
+		<li><a th:href="@{/graduateController/graduate_inside}" target="right"><span
+				class="icon-caret-right"></span>毕业生管理</a></li>
+	</ul>
+
+
+	<h2>
+		<span class="icon-user"></span>xx管理
+	</h2>
+	<ul style="display: block">
+		<li><a th:href="@{/company/list}"  target="right"><span
+				class="icon-caret-right"></span>xxx管理</a></li>
+		<li><a th:href="@{/post/list}" target="right"><span
+				class="icon-caret-right"></span>xxxx管理</a></li>
+	</ul>
+</div>
+ <div class="modal ex-modal-sm fade" tabindex="-1" role="dialog" aria-labelledby="smallmodal">
+	       <div class="modal-dialog modal-sm" role="document">
+	           <div class="modal-content">
+	               <div class="modal-header" id="title"></div>
+	<div class="modal-body content" id="content" style="display: none">
+	</div>
+	           </div>
+
+	       </div>
+
+	   </div>
+
+<div class="admin">
+	<iframe scrolling="auto" rameborder="0" th:src="@{/infoController/info}" name="right"
+			width="100%" height="100%"></iframe>
+</div>
+
+
+
+
+</body>
+</html>

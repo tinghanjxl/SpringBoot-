@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="panel panel-success">
+    <div class="panel-heading">公司信息</div>
+    <div class="panel-body">
+        <form class="navbar-form navbar-left" th:action="@{/CompanyController/company}" method="post">
+            <div class="form-group">
+                <label>搜索:</label>
+                <input type="text" name="industry" class="form-control" placeholder="请输入行业"/>
+                <input type="text" name = "name" class="form-control" placeholder="请输入公司名称"/>
+                <button class="btn btn-info" >查询</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>序号</td>
+        <td>单位名称</td>
+        <td>注册资本</td>
+        <td>电话</td>
+        <td>地址</td>
+        <td>规模</td>
+        <td>类别</td>
+        <td>操作</td>
+        <td>添加日期</td>
+    </tr>
+
+    <tr th:each="item,state:${list}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.funds}"></td>
+        <td th:text="${item.tel}"></td>
+        <td th:text="${item.address}"></td>
+        <td th:text="${item.scale}"></td>
+        <td th:text="${item.industry}"></td>
+        <td><a th:href="@{/CompanyController/list_1?id=__${item.id}__ }"><span>详细</span></a></td>
+        <td th:text="${item.add_date}"></td>
+    </tr>
+
+
+</table>
+
+
+</body>
+</html>

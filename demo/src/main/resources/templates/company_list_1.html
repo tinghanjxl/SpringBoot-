@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<table class="table table-bordered table-striped">
+    `
+    <tr th:each="item,state:${company_click}">
+        <td>公司名称</td>
+        <td th:text="${item.name}"></td>
+    </tr>
+    <tr th:each="item,state:${company_click}">
+        <td>注册资金</td>
+        <td th:text="${item.funds}"></td>
+    </tr>
+    <tr th:each="item,state:${company_click}">
+        <td>电话</td>
+        <td th:text="${item.tel}"></td>
+    </tr>
+    <tr th:each="item,state:${company_click}">
+        <td>地址</td>
+        <td th:text="${item.address}"></td>
+    </tr>
+    <tr th:each="item,state:${company_click}">
+        <td>规模</td>
+        <td th:text="${item.scale}"></td>
+    </tr>
+    <tr th:each="item,state:${company_click}">
+        <td>行业</td>
+        <td th:text="${item.industry}"></td>
+    </tr>
+    <tr th:each="item,state:${company_click}">
+        <td>简介</td>
+        <td th:text="${item.description}"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <a class="btn btn-info" th:href="@{/CompanyController/company}" role="button">返回</a>
+
+        </td>
+    </tr>
+
+
+
+</table>
+
+
+</body>
+</html>

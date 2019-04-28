@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="panel panel-default">
+    <div class="panel-heading">新增岗位</div>
+    <div class="panel-body">
+        <form th:action="@{/PostController/post_inside_add}" method="post">
+            <div class="form-group">
+                <label >公司名称</label>
+                <input type="text" class="form-control" name="company_name" placeholder="请输入公司名" required>
+            </div>
+
+            <div class="form-group">
+                <label >岗位名称</label>
+                <input type="text" class="form-control" name="name" placeholder="请输入岗位名称" required>
+            </div>
+            <div class="form-group">
+                <label >地址</label>
+                <input type="text" class="form-control" name="address" placeholder="请输入地址" required>
+            </div>
+            <div class="form-group">
+                <label >数量</label>
+                <input type="text" class="form-control" name="number" placeholder="请输入数量" required>
+            </div>
+            <div class="form-group">
+                <label>性别</label>
+                <input type="radio" name="sex" value="0" checked> 男
+                <input type="radio" name="sex" value="1"> 女
+            </div>
+            <div class="form-group">
+                <label >薪水</label>
+                <input type="text" class="form-control" name="salary" placeholder="请输入薪水" required>
+            </div>
+
+            <button type="submit" class="btn btn-default">提交</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

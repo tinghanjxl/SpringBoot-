@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="panel panel-success">
+    <div class="panel-heading">岗位信息</div>
+    <div class="panel-body">
+        <form class="navbar-form navbar-left" th:action="@{/PostController/post}" method="post">
+            <div class="form-group">
+                <label>搜索:</label>
+                <input type="text" name="company_name" class="form-control" placeholder="请输入公司"/>
+                <input type="text" name = "name" class="form-control" placeholder="请输入岗位名称"/>
+                <button class="btn btn-info" >查询</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>序号</td>
+        <td>公司名称</td>
+        <td>岗位名称</td>
+        <td>数量</td>
+        <td>性别</td>
+        <td>薪水</td>
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="item,state:${list}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.company_name}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.number}"></td>
+        <td th:text="${item.sex=='0'?'男':'女'}"></td>
+        <td th:text="${item.salary}"></td>
+        <td><a th:href="@{/PostController/list_1?id=__${item.id}__ }"><span>详细</span></a></td>
+    </tr>
+
+
+</table>
+
+
+</body>
+</html>

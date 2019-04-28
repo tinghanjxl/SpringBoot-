@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<table class="table table-bordered table-striped">
+    <ul th:each="item,state:${click_list}">
+        `
+        <li th:text="${item.contents}">
+
+    </ul>
+
+</table>
+<table class="table table-bordered table-striped">
+    <ul th:each="item,state:${click_list_1}">
+        `
+        <li th:text="${item.contents}">
+
+    </ul>
+
+</table>
+
+
+
+</body>
+</html>

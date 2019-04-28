@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="panel panel-success">
+    <div class="panel-heading">毕业生信息</div>
+    <div class="panel-body">
+        <form class="navbar-form navbar-left" th:action="@{/graduateController/graduate}" method="post">
+            <div class="form-group">
+                <label>搜索:</label>
+                <input type="text" name="name" class="form-control" placeholder="请输入姓名"/>
+                <input type="text" name = "university" class="form-control" placeholder="请输入学校"/>
+                <button class="btn btn-info" >查询</button>
+                <a class="btn btn-info" th:href="@{/graduateController/graduate_inside_toAdd}" role="button">新增</a>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>序号</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>大学</td>
+        <td>地址</td>
+        <td>电话</td>
+        <td>备注</td>
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="item,state:${graduate_inside}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.sex=='0'?'男':'女'}"></td>
+        <td th:text="${item.university}"></td>
+        <td th:text="${item.address}"></td>
+        <td th:text="${item.tel}"></td>
+        <td th:text="${item.description}"></td>
+        <td>
+            <a class="btn btn-info" th:href="@{/graduateController/graduate_inside_toUpdate?id=__${item.id}__}" role="button">修改</a>
+            <a class="btn btn-info" th:href="@{/graduateController/graduate_inside_del?id=__${item.id}__}" role="button">删除</a>
+        </td>
+    </tr>
+
+
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/pintuer.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script th:src="@{/bootstrap/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<table class="table table-bordered table-striped">
+    `
+    <tr th:each="item,state:${post_click}">
+        <td>公司名称</td>
+        <td th:text="${item.company_name}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>岗位名称</td>
+        <td th:text="${item.name}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>招聘人数</td>
+        <td th:text="${item.number}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>性别要求</td>
+        <td th:text="${item.sex=='0'?'男':'女'}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>月薪</td>
+        <td th:text="${item.salary}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>学历</td>
+        <td th:text="${item.education}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>工作地点</td>
+        <td th:text="${item.workplace}"></td>
+    </tr>
+    <tr th:each="item,state:${post_click}">
+        <td>职位描述</td>
+        <td th:text="${item.description}"></td>
+    </tr>
+    <tr>
+        <td></td>
+    <td>
+        <a class="btn btn-info" th:href="@{/PostController/post}" role="button">返回</a>
+
+    </td>
+    </tr>
+
+
+
+</table>
+
+
+</body>
+</html>
